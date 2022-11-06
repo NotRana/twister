@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-bot = commands.Bot(command_prefix="&", intents=discord.Intents.all())
+bot = discord.Bot(command_prefix="&", intents=discord.Intents.all())
 
 
 @bot.event
@@ -15,7 +15,7 @@ async def hallo(ctx):
 
 @bot.slash_command(title="pong!", description="send asf pong!")
 async def ping(ctx):
-    await ctx.send(f"Pong! {round(bot.latency * 1000)}ms")
+    await ctx.respond(f"Pong! {round(bot.latency * 1000)}ms")
 # extensions = [
 #               "cogs.test"
 # ]
