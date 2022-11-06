@@ -7,9 +7,9 @@ class Test(commands.Cog):
 		self.bot = bot
 
 
-    @commands.command()
+    @bot.slash_command(title="pong!", description="send pong!")
     async def ping(ctx, self):
-        await ctx.send('pong!') 
+        await ctx.respond(f"Pong! {round(bot.latency * 1000)}ms")
 
   
 
