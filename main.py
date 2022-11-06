@@ -86,7 +86,8 @@ async def warn(ctx, member: discord.Member, reason=None):
   await ctx.send(embed=embed)
 
   embed=discord.Embed(title="Warned!", description=f"{member.mention} has been warned for {reason}\n Moderator: {ctx.author.mention}\nWarned Member: {member.mention}", colour=discord.Colour.blue())
-  await member.send(embed=embed)
+  channel = await member.create_dm()
+  await channel.send(embed=embed)
 
 # mute command
 
