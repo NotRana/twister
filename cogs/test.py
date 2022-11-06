@@ -7,7 +7,7 @@ class Test(commands.Cog):
 		self.bot = bot
 
 
-    @command.commands()
+    @commands.command()
     async def ping(ctx, self):
         await ctx.send('pong!') 
 
