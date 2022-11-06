@@ -14,8 +14,8 @@ async def hallo(ctx):
     
 
 @bot.command(title="pong!", description="send asf pong!")
-    async def ping(ctx):
-        await ctx.send(f"Pong! {round(bot.latency * 1000)}ms")
+async def ping(ctx):
+    await ctx.send(f"Pong! {round(bot.latency * 1000)}ms")
 # extensions = [
 #               "cogs.test"
 # ]
