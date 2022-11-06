@@ -13,7 +13,7 @@ async def hallo(ctx):
     await ctx.send('hallo')
     
 
-@bot.slash_command(title="pong!", description="send asf pong!")
+@bot.command(title="pong!", description="send asf pong!")
 async def ping(ctx):
     await ctx.send(f"Pong! {round(bot.latency * 1000)}ms")
 # extensions = [
