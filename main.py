@@ -9,7 +9,7 @@ bot.remove_command('help')
 @bot.event
 async def on_ready():
   print(f"Bot is Ready {bot.user}")
-  await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.Streaming, url="https://www.twitch.tv", name="Under Development."))
+  await bot.change_presence(activity=discord.Streaming(name='Under Development.', url='https://www.twitch.tv/ranaasadgg'))
 print("Presence has been set")
 
 # @bot.command()
