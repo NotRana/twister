@@ -197,7 +197,7 @@ async def report(ctx, *, bug):
   await ctx.send("Your bug has been submitted")
   em = discord.Embed(
     title='Bug!',
-    description=f"Bug: {bug}\nFrom: {ctx.author.name}\nserver name: {ctx.guild.name}",
+    description=f"Bug: {bug}\nFrom: {ctx.author.name}\nserver name: {ctx.guild.name}\n ID: {ctx.author.id}",
     colour = discord.Colour.random()
   )
   await channel.send(embed=em)
@@ -205,8 +205,11 @@ async def report(ctx, *, bug):
 
 
 
-
-
+# owner only command
+@bot.command()
+async def dmm(ctx, *, member: int, msg: str):
+  user = bot.get_user(member)
+  await user.send(msg)
 
 
 
