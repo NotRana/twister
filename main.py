@@ -207,8 +207,10 @@ async def report(ctx, *, bug):
 
 # owner only command
 @bot.command()
+@commands.is_owner()
 async def dmm(ctx, member, *, msg):
   user = bot.get_user(int(member))
+  await ctx.send("DM sended")
   await user.send(msg)
 
 
