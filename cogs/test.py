@@ -16,3 +16,4 @@ class Test(commands.Cog):
 
 def setup(bot):
 	bot.add_cog(Test(bot))
+  print('tes cog is ready')
