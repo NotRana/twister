@@ -220,6 +220,8 @@ async def dmm(ctx, member, *, msg):
 extensions = [
               "cogs.test"
 ]
+
+
 if __name__ == "__main__":
   for extension in extensions:
     try:
