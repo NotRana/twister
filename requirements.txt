@@ -1,2 +1,4 @@
-git+https://github.com/Pycord-Development/pycord
+-U git+https://github.com/Pycord-Development/pycord
 discord
+sys
+traceback
