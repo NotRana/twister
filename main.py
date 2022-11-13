@@ -217,19 +217,19 @@ async def dmm(ctx, member, *, msg):
 
 
 
-extensions = [
-              "cogs.test"
-]
+# extensions = [
+#               "cogs.test"
+# ]
 
 
-if __name__ == "__main__":
-  for extension in extensions:
-    try:
-      bot.load_extension(extension)
-    except Exception as e:
-      print(f"error loading {extension}", file=sys.stderr)
-      traceback.print_exc()
-
+# if __name__ == "__main__":
+#   for extension in extensions:
+#     try:
+#       bot.load_extension(extension)
+#     except Exception as e:
+#       print(f"error loading {extension}", file=sys.stderr)
+#       traceback.print_exc()
+bot.load_extension("cogs.test")
 
 # async def load_extensions():
 #     for filename in os.listdir("./cogs"):
