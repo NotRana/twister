@@ -1,4 +1,4 @@
 git+https://github.com/Pycord-Development/pycord
 discord
-os-sys
-traceback2
+# os-sys
+# traceback2
