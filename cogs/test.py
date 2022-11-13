@@ -16,4 +16,4 @@ class Test(commands.Cog):
 
 async def setup(bot):
     await bot.add_cog(Test(bot))
-  print('test cog is ready')
+    print('test cog is ready')
