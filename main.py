@@ -229,7 +229,7 @@ async def dmm(ctx, member, *, msg):
 #     except Exception as e:
 #       print(f"error loading {extension}", file=sys.stderr)
 #       traceback.print_exc()
-await bot.load_extension("cogs.test")
+
 
 # async def load_extensions():
 #     for filename in os.listdir("./cogs"):
