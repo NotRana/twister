@@ -215,34 +215,16 @@ async def dmm(ctx, member, *, msg):
   await ctx.send("DM sended")
   await user.send(msg)
 
-cogs = ["test"]
 
-# you can also add the on_ready event as usual here if you'd like
 
-# making sure the bot only loads the extensions if this
-# file was executed directly and not imported
+
+cogs = ["cogs.ping"]
+
+
 if __name__ == "__main__": 
     for cog in cogs:
         bot.load_extension(cog)
 
-# extensions = [
-#               "cogs.test"
-# ]
 
-
-# if __name__ == "__main__":
-#   for extension in extensions:
-#     try:
-#       bot.load_extension(extension)
-#     except Exception as e:
-#       print(f"error loading {extension}", file=sys.stderr)
-#       traceback.print_exc()
-
-
-# async def load_extensions():
-#     for filename in os.listdir("./cogs"):
-#         if filename.endswith(".py"):
-#             # cut off the .py from the file name
-#             await bot.load_extension(f"cogs.{filename[:-3]}")
 
 bot.run("Nzk3NDU1OTc1MTMyMTY4MjYz.GjUN1M.HS7HkLOXwSqNa_FFh9zuU6rdS0Ixmi0srzkho4")
