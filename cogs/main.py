@@ -215,7 +215,15 @@ async def dmm(ctx, member, *, msg):
   await ctx.send("DM sended")
   await user.send(msg)
 
-bot.load_extension("cog.test")
+cogs = ["test"]
+
+# you can also add the on_ready event as usual here if you'd like
+
+# making sure the bot only loads the extensions if this
+# file was executed directly and not imported
+if __name__ == "__main__": 
+    for cog in cogs:
+        bot.load_extension(cog)
 
 # extensions = [
 #               "cogs.test"
