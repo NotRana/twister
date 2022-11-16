@@ -7,13 +7,13 @@ class Test(commands.Cog):
 		self.bot = bot
 
 
-  @bot.slash_command(title="pong!", description="send pong!")
+  @commands.slash_command(title="pong!", description="send pong!")
   async def ping(ctx, self):
     await ctx.respond(f"Pong! {round(bot.latency * 1000)}ms")
 
   
 
 
-async def setup(bot):
-    await bot.add_cog(Test(bot))
-    print('test cog is ready')
+adef setup(bot):
+  await bot.add_cog(Test(bot))
+  print('test cog is ready')

@@ -215,7 +215,7 @@ async def dmm(ctx, member, *, msg):
   await ctx.send("DM sended")
   await user.send(msg)
 
-
+bot.load_extension("test")
 
 # extensions = [
 #               "cogs.test"
