@@ -7,7 +7,7 @@ class ping(commands.Cog):
         self.bot = bot
 
 
-    @commands.slash_command()  # Not passing in guild_ids creates a global slash command.
+    @commands.slash_command(name="ping", description="send pong")  # Not passing in guild_ids creates a global slash command.
     async def ping(self, ctx: discord.ApplicationContext):
         await ctx.respond(f"Pong! {round(self.bot.latency * 1000)}ms")
 
