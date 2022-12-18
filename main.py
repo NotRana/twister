@@ -227,7 +227,7 @@ if __name__ == "__main__":
     for cog in cogs:
         bot.load_extension(cog)
 def get_meme():
-  response = requests.get('https://meme-api.herokuapp.com/gimme')
+  response = requests.get('https://meme-api.com/gimme')
   json_data = json.loads(response.text)
   return json_data['url']
 
