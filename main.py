@@ -229,9 +229,12 @@ if __name__ == "__main__":
 
 @bot.command(name="meme")
 async def meme(ctx):
-  content = get("https://rapidapi.com/collection/meme").text
-  data = json.loads(content)
-  meme = discord.Embed(title=f"{data['title']}", Color = discord.Color.random()).set_image(url=f"{data['url']}")
-  await ctx.reply(embed=meme)
+  embed = discord.Embed(title="meme", description="test")
+
+  async with aiohttp.ClientSession() as cs:
+    async with cs.get('https://www.reddit.com/r/dankmemes/new.json?sort=hot') as r:
+      res = await r.json()
+      embed.set_image(res['data']['children'] [random.randint(0, 25)]['data']['url'])
+      await ctx.reply(embed=embed)
 
 bot.run("Nzk3NDU1OTc1MTMyMTY4MjYz.GjUN1M.HS7HkLOXwSqNa_FFh9zuU6rdS0Ixmi0srzkho4")
