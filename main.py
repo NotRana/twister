@@ -231,11 +231,11 @@ def get_meme():
   json_data = json.loads(response.text)
   return json_data['url']
 
-mm = get_meme()
+mem = get_meme()
 
 @bot.command(name="meme")
 async def meme(ctx):
-  embed = discord.Embed(title="meme", description=f"{mm}")
+  embed = discord.Embed(title="meme", description=f"{mem}")
 
   await ctx.reply(embed=embed)
 
