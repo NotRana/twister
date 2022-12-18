@@ -189,7 +189,7 @@ async def unlock(ctx, channel: discord.TextChannel):
 @commands.has_permissions(kick_members=True)
 async def giverole(ctx, user: discord.Member, role: discord.Role):
     await user.add_roles(role)
-    await ctx.send(f"hey {ctx.author.mention}, {user.mention} has been giving a role called: {role.mention}")
+    await ctx.send(f"{ctx.author.mention}, {user.mention} has been giving a role called: {role.mention}")
 
 # report command
 
