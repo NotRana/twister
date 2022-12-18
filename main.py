@@ -226,15 +226,17 @@ cogs = ["cogs.ping"]
 if __name__ == "__main__": 
     for cog in cogs:
         bot.load_extension(cog)
+def get_meme():
+  response = requests.get('https://meme-api.herokuapp.com/gimme')
+  json_data = json.loads(response.text)
+  return json_data['url']
+
+mm = get_meme()
 
 @bot.command(name="meme")
 async def meme(ctx):
-  embed = discord.Embed(title="meme", description="test")
+  embed = discord.Embed(title="meme", description=f"{mm}")
 
-  async with aiohttp.ClientSession() as cs:
-    async with cs.get('https://www.reddit.com/r/dankmemes/new.json?sort=hot') as r:
-      res = await r.json()
-      embed.set_image(res['data']['children'] [random.randint(0, 25)]['data']['url'])
-      await ctx.reply(embed=embed)
+  await ctx.reply(embed=embed)
 
 bot.run("Nzk3NDU1OTc1MTMyMTY4MjYz.GjUN1M.HS7HkLOXwSqNa_FFh9zuU6rdS0Ixmi0srzkho4")
