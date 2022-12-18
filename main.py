@@ -4,7 +4,7 @@ import os
 import sys
 import traceback
 import json
-from requests import get
+import requests
 
 bot = commands.Bot(command_prefix="?", intents=discord.Intents.all())
 
