@@ -3,6 +3,8 @@ from discord.ext import commands
 import os
 import sys
 import traceback
+import json
+from requests import get
 
 bot = commands.Bot(command_prefix="?", intents=discord.Intents.all())
 
@@ -225,6 +227,11 @@ if __name__ == "__main__":
     for cog in cogs:
         bot.load_extension(cog)
 
-
+@bot.command(name="meme")
+async def meme(ctx):
+  content = get("https://meme-api.herokuapp.com/gimme").text
+  data = json.loads(content,)
+  meme = discord.Embed(title=f"{data['title']}", Color = discord.Color.random()).set_image(url=f"{data['url']}")
+  await ctx.reply(embed=meme)
 
 bot.run("Nzk3NDU1OTc1MTMyMTY4MjYz.GjUN1M.HS7HkLOXwSqNa_FFh9zuU6rdS0Ixmi0srzkho4")
