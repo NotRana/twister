@@ -237,7 +237,12 @@ mem = get_meme()
 async def meme(ctx):
   response = requests.get('https://meme-api.com/gimme')
   json_data = json.loads(response.text)
-  embed = title=f"Meme", Color = discord.Color.random()).set_image(url=f"{json_data['url']}
+  embed = (
+    title="Meme",
+    colour = discord.Colour.random()
+  )
+
+  embed.set_image(url=f”{json_data[‘url’]}”)
 
   await ctx.reply(embed=embed)
 
