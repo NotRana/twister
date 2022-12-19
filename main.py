@@ -239,7 +239,7 @@ async def meme(ctx):
   json_data = json.loads(response.text)
   
 
-  meme = discord.Embed(title=f"{json_data['title']}", Color = discord.Color.random()).set_image(url=f"{json_data['url']}")
+  meme = discord.Embed(title=f"{json_data['title']}", Color = discord.Colour.random()).set_image(url=f"{json_data['url']}")
 
   await ctx.reply(embed=meme)
 
