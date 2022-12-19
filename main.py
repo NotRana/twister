@@ -150,10 +150,10 @@ async def say(ctx, message):
 
 @bot.command()
 async def help(ctx):
-    em = discord.Embed(title="Help", description="Use /help for commands", colour=discord.Color.random())
-    em.add_field(name = "Moderation", value = "> `kick`,`ban`,`unban`,`mute`,`unmute`,`warn`,`lock`,`unlock`,`giverole`")
-    em.add_field(name="Fun", value="> `meme(comming soon)`")
-    em.add_field(name="Utility", value="> `say`,`purge`,`ping`,`avatar`,`avatar`,`report`")
+    em = discord.Embed(title="Help", description="Use ?help for commands", colour=discord.Color.random())
+    em.add_field(name = "⚒️ Moderation", value = "> `kick`,`ban`,`unban`,`mute`,`unmute`,`warn`,`lock`,`unlock`,`giverole`")
+    em.add_field(name="🤡 Fun", value="> `meme`")
+    em.add_field(name="⚙️ Utility", value="> `say`,`purge`,`ping`,`avatar`,`avatar`,`report`")
     em.set_footer(text="Made By Rana Asad.py#5925")
     await ctx.send(embed=em)
 
