@@ -14,7 +14,7 @@ bot.remove_command('help')
 async def on_ready():
   print(f"Bot is Ready {bot.user}")
   await bot.change_presence(activity=discord.Streaming(name='Under Development.', url='https://www.twitch.tv/ranaasadgg'))
-print("Presence has been set")
+  print("Presence has been set")
 
 # @bot.command()
 # async def hallo(ctx):
@@ -239,7 +239,7 @@ async def meme(ctx):
   json_data = json.loads(response.text)
   
 
-  meme = discord.Embed(title=f"{json_data['title']}", Color = discord.Colour.random()).set_image(url=f"{json_data['url']}")
+  meme = discord.Embed(title=f"{json_data['title']}", colour = discord.Colour.random()).set_image(url=f"{json_data['url']}")
 
   await ctx.reply(embed=meme)
 
