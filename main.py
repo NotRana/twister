@@ -247,7 +247,7 @@ async def meme(ctx):
 
 @bot.command(name="invite")
 async def invite(ctx):
-  em = discord.Embed(title = "invite me", description = "https://discord.com/oauth2/authorize?client_id=797455975132168263&permissions=8&scope=bot", colour = discord.Colour.random())
+  em = discord.Embed(title = "Invite Twister#7791 to your server!", description = "You can invite me by clicking [here](https://discord.com/oauth2/authorize?client_id=797455975132168263&permissions=8&scope=bot)", colour = discord.Colour.random())
 
   await ctx.send(embed=em)
 
