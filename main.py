@@ -244,4 +244,15 @@ async def meme(ctx):
 
   await ctx.reply(embed=meme)
 
+
+@bot.command(name="invite")
+async def invite(ctx):
+  embed = (
+    title = "**INVITE TWISTER TO YOUR SERVER**",
+    description = "You can invite me by clicking [here](https://discord.com/oauth2/authorize?client_id=797455975132168263&permissions=8&scope=bot%20identify%20guilds%20applications.commands&redirect_url=https://discord-musicbot-3.technicallytech.repl.co/api/callback&response_type=code) 
+"
+  )
+
+  await ctx.send(embed=embed)
+
 bot.run("Nzk3NDU1OTc1MTMyMTY4MjYz.GjUN1M.HS7HkLOXwSqNa_FFh9zuU6rdS0Ixmi0srzkho4")
