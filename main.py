@@ -1,10 +1,11 @@
 import discord
 from discord.ext import commands
 import os
-import sys
-import traceback
 import json
 import requests
+import config
+from config import token
+
 
 bot = commands.Bot(command_prefix="?", intents=discord.Intents.all())
 
@@ -13,7 +14,7 @@ bot.remove_command('help')
 @bot.event
 async def on_ready():
   print(f"Bot is Ready {bot.user}")
-  await bot.change_presence(activity=discord.Streaming(name='Under Development.', url='https://www.twitch.tv/ranaasadgg'))
+  await bot.change_presence(activity=discord.Streaming(name='Made With 💖', url='https://www.twitch.tv/ranaasadgg'))
   print("Presence has been set")
 
 # @bot.command()
@@ -152,7 +153,7 @@ async def say(ctx, message):
 async def help(ctx):
     em = discord.Embed(title="Help", description="Use ?help for commands", colour=discord.Color.random())
     em.add_field(name = "⚒️ Moderation", value = "> `kick`,`ban`,`unban`,`mute`,`unmute`,`warn`,`lock`,`unlock`,`giverole`")
-    em.add_field(name="🤡 Fun", value="> `meme`")
+    em.add_field(name="🤡 Fun", value="> `meme`,`joke`")
     em.add_field(name="⚙️ Utility", value="> `say`,`purge`,`ping`,`avatar`,`avatar`,`report`")
     em.set_footer(text="Made By Rana Asad.py#5925")
     await ctx.send(embed=em)
@@ -220,18 +221,31 @@ async def dmm(ctx, member, *, msg):
 
 
 
-cogs = ["cogs.ping"]
+cogs = [
+  "cogs.ping",
+  "cogs.about"
+]
+
+# if __name__ == "__main__": 
+for cog in cogs:
+  bot.load_extension(cog)
+  print(f"{cog} is loaded")
+
+# @bot.command(name="load")
+# async def load(ctx):
+#   for cog in cogs:
+#     await bot.load_extension(cog)
+#     await ctx.send("Loaded!")
 
 
-if __name__ == "__main__": 
-    for cog in cogs:
-        bot.load_extension(cog)
-def get_meme():
-  response = requests.get('https://meme-api.com/gimme')
-  json_data = json.loads(response.text)
-  return json_data['url']
+# bot.load_extension("cogs.ping")
 
-mem = get_meme()
+# def get_meme():
+#   response = requests.get('https://meme-api.com/gimme')
+#   json_data = json.loads(response.text)
+#   return json_data['url']
+
+# mem = get_meme()
 
 @bot.command(name="meme")
 async def meme(ctx):
@@ -245,10 +259,27 @@ async def meme(ctx):
   await ctx.reply(embed=meme)
 
 
+
+@bot.command(name='joke')
+async def joke (ctx):
+  respond = requests.get('https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Dark,Pun,Spooky,Christmas?blacklistFlags=religious&type=twopart')
+  json_data = json.loads(respond.text)
+  setup = json_data['setup']
+  delev = json_data['delivery']
+
+  joke = discord.Embed(
+    title="JOKE",
+    description=f'{setup}\n{delev}',
+    colour = discord.Colour.random()
+  )
+
+  await ctx.reply(embed=joke)
+
 @bot.command(name="invite")
 async def invite(ctx):
   em = discord.Embed(title = "Invite Twister#7791 to your server!", description = "You can invite me by clicking [here](https://discord.com/oauth2/authorize?client_id=797455975132168263&permissions=8&scope=bot)", colour = discord.Colour.random())
 
   await ctx.send(embed=em)
 
-bot.run("Nzk3NDU1OTc1MTMyMTY4MjYz.GjUN1M.HS7HkLOXwSqNa_FFh9zuU6rdS0Ixmi0srzkho4")
+
+bot.run(config.token)
