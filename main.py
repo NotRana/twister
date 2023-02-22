@@ -3,6 +3,7 @@ from discord.ext import commands
 import os
 import json
 import requests
+import time 
 import config
 from config import token
 
@@ -280,6 +281,20 @@ async def invite(ctx):
   em = discord.Embed(title = "Invite Twister#7791 to your server!", description = "You can invite me by clicking [here](https://discord.com/oauth2/authorize?client_id=797455975132168263&permissions=8&scope=bot)", colour = discord.Colour.random())
 
   await ctx.send(embed=em)
+  
+  
+@bot.slash_command(name="uptime")
+async def uptime(ctx):
+  current_time = time.time()
+  difference = int(round(current_time - start_time))
+  text = str(datetime.timedelta(seconds=difference))
+  embed = discord.Embed(colour=0xc8dc6c)
+  embed.add_field(name="Uptime", value=text)
+  embed.set_footer(text="<bot name>")
+  try:
+    await ctx.send(embed=embed)
+  except discord.HTTPException:
+    await ctx.send("Current uptime: " + text)
 
 
 bot.run(config.token)
