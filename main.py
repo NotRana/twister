@@ -3,7 +3,7 @@ from discord.ext import commands
 import os
 import json
 import requests
-import time 
+import time, datetime
 import config
 from config import token
 
@@ -282,11 +282,19 @@ async def invite(ctx):
 
   await ctx.send(embed=em)
   
-  
+start_time = time.time()
+
 @bot.command(name="uptime")
 async def uptime(ctx):
-  uptime = str(datetime.timedelta(seconds=int(round(time.time()-startTime))))
-  await ctx.send(f"Uptime {uptime} ")
-
+  current_time = time.time()
+  difference = int(round(current_time - start_time))
+  text = str(datetime.timedelta(seconds=difference))
+  embed = discord.Embed(colour=ctx.message.author.top_role.colour)
+  embed.add_field(name="Uptime", value=text)
+  embed.set_footer(text=" - Choo!!! Choo!!!")
+  try:
+    await self.bot.say(embed=embed)
+  except discord.HTTPException:
+    await self.bot.say("Current uptime: " + text)
 
 bot.run(config.token)
