@@ -14,7 +14,7 @@ bot.remove_command('help')
 @bot.event
 async def on_ready():
   print(f"Bot is Ready {bot.user}")
-  await bot.change_presence(activity=discord.Streaming(name='Made With 💖', url='https://www.twitch.tv/ranaasadgg'))
+  await bot.change_presence(activity=discord.Streaming(name='Made With 💖', url='https://www.youtube.com/NotRanaReal'))
   print("Presence has been set")
 
 # @bot.command()
@@ -144,7 +144,7 @@ async def unmute_error(ctx, error):
 # slash commands for test
 
 @bot.command()
-async def say(ctx, message):
+async def say(ctx, *,message):
   em = discord.Embed(description=f"{message}", colour=discord.Color.random())
   await ctx.send(embed=em)
 # help command
@@ -198,7 +198,7 @@ async def giverole(ctx, user: discord.Member, role: discord.Role):
 
 @bot.command()
 async def report(ctx, *, bug):
-  channel = bot.get_channel(1037037515691016323)
+  channel = bot.get_channel(1077776476197372004)
   await ctx.send("Your bug has been submitted")
   em = discord.Embed(
     title='Bug!',
