@@ -293,8 +293,8 @@ async def uptime(ctx):
   embed.add_field(name="Uptime", value=text)
   embed.set_footer(text=" - Choo!!! Choo!!!")
   try:
-    await self.bot.say(embed=embed)
+    await ctx.send(embed=embed)
   except discord.HTTPException:
-    await self.bot.say("Current uptime: " + text)
+    await ctx.send("Current uptime: " + text)
 
 bot.run(config.token)
