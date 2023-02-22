@@ -283,7 +283,7 @@ async def invite(ctx):
   await ctx.send(embed=em)
   
   
-@bot.slash_command(name="uptime")
+@bot.command(name="uptime")
 async def uptime(ctx):
   current_time = time.time()
   difference = int(round(current_time - start_time))
