@@ -285,16 +285,8 @@ async def invite(ctx):
   
 @bot.command(name="uptime")
 async def uptime(ctx):
-  current_time = time.time()
-  difference = int(round(current_time - start_time))
-  text = str(datetime.timedelta(seconds=difference))
-  embed = discord.Embed(colour=0xc8dc6c)
-  embed.add_field(name="Uptime", value=text)
-  embed.set_footer(text="<bot name>")
-  try:
-    await ctx.send(embed=embed)
-  except discord.HTTPException:
-    await ctx.send("Current uptime: " + text)
+  uptime = str(datetime.timedelta(seconds=int(round(time.time()-startTime))))
+  await ctx.send(f"Uptime {uptime} ")
 
 
 bot.run(config.token)
